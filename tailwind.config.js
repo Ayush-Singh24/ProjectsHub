@@ -16,7 +16,7 @@ module.exports = {
         "primary-300": "#FFA6A3",
         "primary-500": "#FF6B66",
         "secondary-400": "#FFCD58",
-        "secondart-500": "#FFC132",
+        "secondary-500": "#FFC132",
       },
       fontFamily: {
         dmsans: ["DM Sans", "sans-serif"],
