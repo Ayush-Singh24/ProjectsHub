@@ -1,6 +1,10 @@
+import React from "react";
 import Button from "./components/Button";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <section className="bg-gray-20 h-full max-w-[1550px] p-5 flex flex-col justify-center mx-auto">
       <div>
@@ -17,7 +21,13 @@ export default function Home() {
             consectetur adipisicing elit. Vel, tempora dicta. Corporis non
             ratione repelle
           </p>
-          <Button action="ourplans" />
+          <Button
+            handleClick={(
+              event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+            ) => router.push("/plans")}
+            buttonType="button"
+            text="Buy Now!"
+          />
         </div>
         <img
           src="/images/HomePageGraphic.png"
