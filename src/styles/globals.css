@@ -6,9 +6,13 @@
 
 html,
 body {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   font-family: "DM Sans", sans-serif;
   @apply text-gray-500;
   background-color: #efe6e6;
+}
+
+#__next {
+  height: 100%;
 }
