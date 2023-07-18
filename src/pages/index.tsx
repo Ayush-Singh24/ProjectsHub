@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <section className="bg-gray-20 h-full md:h-[90%] max-w-[1550px] p-5 flex flex-col justify-center mx-auto">
+    <section className="bg-gray-20 h-full max-w-[1550px] p-5 flex flex-col justify-center mx-auto">
       <div>
         <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
       </div>
