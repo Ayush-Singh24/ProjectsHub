@@ -1,3 +1,5 @@
+import Button from "./components/Button";
+
 export default function Home() {
   return (
     <section className="bg-gray-20 h-full max-w-[1550px] p-5 flex flex-col justify-center mx-auto">
@@ -15,9 +17,7 @@ export default function Home() {
             consectetur adipisicing elit. Vel, tempora dicta. Corporis non
             ratione repelle
           </p>
-          <button className="self-center bg-secondary-400 rounded font-medium py-2 px-4 transition-all hover:scale-105 hover:bg-secondary-500">
-            Buy Now!
-          </button>
+          <Button action="ourplans" />
         </div>
         <img
           src="/images/HomePageGraphic.png"
