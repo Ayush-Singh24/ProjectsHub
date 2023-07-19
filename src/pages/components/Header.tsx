@@ -5,13 +5,13 @@ export default function Header() {
     behavior: "smooth",
   };
 
-  const goToBottom = (event: React.MouseEvent<HTMLElement>) => {
-    console.log(event.target);
-    // window.scrollTo(bottomScrollPosition);
+  const goToBottom = () => {
+    console.log("contact us button clicked!");
+    window.scrollTo(bottomScrollPosition);
   };
 
   return (
-    <div className="relative max-w-[1550px] w-full mx-auto">
+    <div className="max-w-[1550px] w-full mx-auto">
       <div className="p-5 max-w-[1550px] w-full fixed bg-gray-50 flex justify-between">
         <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
         <button
