@@ -10,7 +10,7 @@ export default function Home() {
       <div className="font-montserrat flex flex-col gap-5 justify-between items-center h-3/4 my-auto lg:flex-row lg:justify-center">
         <div className="flex flex-col gap-5 text-center justify-center items-center max-w-3xl basis-1/2">
           <div className="flex flex-col gap-2">
-            <h2 className="text-5xl font-bold">Projects Hub</h2>
+            <h2 className="text-5xl font-bold animate-pulse">Projects Hub</h2>
             <p className="text-xl">Revolutionary projects</p>
           </div>
           <p className="text-base font-dmsans font-bold text-left">

@@ -1,4 +1,4 @@
-import { NavSpanStyle } from "@/utils/constants";
+import { NavLinkActiveState, NavSpanStyle } from "@/utils/styles";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -18,14 +18,14 @@ export default function Navbar() {
 
   return (
     <div className="max-w-[1550px] w-full mx-auto">
-      <div className="p-2 max-w-[1550px] w-full fixed bg-gray-50 flex justify-between items-center text-gray-500">
+      <div className="p-3 md:p-2 max-w-[1550px] w-full fixed bg-gray-50 flex justify-between items-center text-gray-500">
         <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
-        <div>
+        <div className="hidden md:block">
           <ul>
             <li className="flex gap-5">
               <div
-                className={`p-2 rounded ${
-                  router.pathname === "/" ? "bg-slate-300" : ""
+                className={`p-2 rounded transition-all ${
+                  router.pathname === "/" ? NavLinkActiveState : ""
                 }`}
               >
                 <Link className={NavSpanStyle} href="/">
@@ -33,8 +33,8 @@ export default function Navbar() {
                 </Link>
               </div>
               <div
-                className={`p-2 rounded ${
-                  router.pathname === "/plans" ? "bg-slate-300" : ""
+                className={`p-2 rounded transition-all ${
+                  router.pathname === "/plans" ? NavLinkActiveState : ""
                 }`}
               >
                 <Link className={NavSpanStyle} href="/plans">
@@ -42,8 +42,8 @@ export default function Navbar() {
                 </Link>
               </div>
               <div
-                className={`p-2 rounded ${
-                  router.pathname === "/login" ? "bg-slate-300" : ""
+                className={`p-2 rounded transition-all ${
+                  router.pathname === "/login" ? NavLinkActiveState : ""
                 }`}
               >
                 <Link className={NavSpanStyle} href="/login">
@@ -51,15 +51,15 @@ export default function Navbar() {
                 </Link>
               </div>
               <div
-                className={`p-2 rounded ${
-                  router.pathname === "/signup" ? "bg-slate-300" : ""
+                className={`p-2 rounded transition-all ${
+                  router.pathname === "/signup" ? NavLinkActiveState : ""
                 }`}
               >
                 <Link className={NavSpanStyle} href="/signup">
                   Sign Up
                 </Link>
               </div>
-              <div className="p-2 rounded">
+              <div className="p-2 rounded transition-all">
                 <span className={NavSpanStyle} onClick={goToBottom}>
                   Contact Us
                 </span>
