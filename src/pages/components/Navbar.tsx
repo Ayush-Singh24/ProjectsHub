@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <div className="max-w-[1550px] w-full mx-auto">
-      <div className="p-3 md:p-2 max-w-[1550px] w-full fixed bg-gray-50 flex justify-between items-center text-gray-500">
+      <div className="p-3 md:p-2 max-w-[1550px] w-full fixed bg-gray-100 flex justify-between items-center text-gray-500">
         <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
         <div className="hidden md:block">
           <ul>
