@@ -10,7 +10,7 @@ export default function Home() {
       <div className="font-montserrat flex flex-col gap-5 justify-between items-center h-3/4 my-auto lg:flex-row lg:justify-center">
         <div className="flex flex-col gap-5 text-center justify-center items-center max-w-3xl basis-1/2">
           <div className="flex flex-col gap-2">
-            <h2 className="relative z-10 text-5xl font-bold after:content-[''] after:h-[105%] after:absolute after:top-0 after:p-1 after:-right-6 after:w-[110%] after:border-l-gray-500 after:border-l-8 after:transition-all after:bg-gray-20 bg-gray-20 after:animate-type-bar-animation after:fill-mode-forwards">
+            <h2 className="relative z-10 text-5xl font-bold after:content-[''] after:h-[105%] after:absolute after:top-0 after:p-1 after:-right-6 after:w-[110%] after:transition-all after:bg-gray-20 bg-gray-20 after:animate-type-animation after:fill-mode-forwards before:content-[''] before:bg-gray-500 before:w-2 before:h-[105%] before:absolute before:-right-6 before:animate-type-bar-animation before:fill-mode-forwards before:z-50">
               Projects Hub
             </h2>
             <p className="text-xl">Revolutionary projects</p>

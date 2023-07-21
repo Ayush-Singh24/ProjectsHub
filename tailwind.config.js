@@ -28,17 +28,23 @@ module.exports = {
       }),
     },
     keyframes: {
+      "type-movement": {
+        "0%": { width: "100%", right: "0" },
+        "100%": { width: "0rem", right: "-1.5rem" },
+      },
       "type-bar-movement": {
-        "0%": { width: "100%" },
-        "100%": { width: "0.25rem" },
+        "0%": { right: "100%" },
+        "100%": { right: "-1.5rem" },
       },
       pulse: {
         "0%": { opacity: "0" },
-        "100%": { opacity: "1" },
+        "50%": { opacity: "1" },
+        "100%": { opacity: "0" },
       },
     },
     animation: {
-      "type-bar-animation": "type-bar-movement 2s",
+      "type-animation": "type-movement 2s",
+      "type-bar-animation": "type-bar-movement 2s, pulse 2s 2s infinite",
     },
   },
   plugins: [require("tailwindcss-animate")],
