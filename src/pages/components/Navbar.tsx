@@ -34,6 +34,15 @@ export default function Navbar() {
               </div>
               <div
                 className={`p-2 rounded ${
+                  router.pathname === "/plans" ? "bg-slate-300" : ""
+                }`}
+              >
+                <Link className={NavSpanStyle} href="/plans">
+                  Plans
+                </Link>
+              </div>
+              <div
+                className={`p-2 rounded ${
                   router.pathname === "/login" ? "bg-slate-300" : ""
                 }`}
               >
