@@ -27,6 +27,19 @@ module.exports = {
         "mobile-home": "url()",
       }),
     },
+    keyframes: {
+      "type-bar-movement": {
+        "0%": { width: "100%" },
+        "100%": { width: "0.25rem" },
+      },
+      pulse: {
+        "0%": { opacity: "0" },
+        "100%": { opacity: "1" },
+      },
+    },
+    animation: {
+      "type-bar-animation": "type-bar-movement 2s",
+    },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
