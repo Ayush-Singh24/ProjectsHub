@@ -1,4 +1,10 @@
+import { NavSpanStyle } from "@/utils/constants";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+
 export default function Navbar() {
+  const router = useRouter();
   const bottomScrollPosition: ScrollToOptions = {
     top: 100,
     left: 0,
@@ -12,18 +18,43 @@ export default function Navbar() {
 
   return (
     <div className="max-w-[1550px] w-full mx-auto">
-      <div className="p-5 max-w-[1550px] w-full fixed bg-gray-50 flex justify-between">
+      <div className="p-2 max-w-[1550px] w-full fixed bg-gray-50 flex justify-between items-center text-gray-500">
         <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
         <div>
           <ul>
-            <li>
-              <span
-                className="relative font-montserrat font-bold text-sm before:content-[''] before:h-1 before:absolute before:top-full before:left-0 before:w-0 
-          before:-z-10 before:transition-all before:bg-gray-500 before:rounded hover:before:w-full cursor-pointer"
-                onClick={goToBottom}
+            <li className="flex gap-5">
+              <div
+                className={`p-2 rounded ${
+                  router.pathname === "/" ? "bg-slate-300" : ""
+                }`}
               >
-                Contact Us
-              </span>
+                <Link className={NavSpanStyle} href="/">
+                  Home
+                </Link>
+              </div>
+              <div
+                className={`p-2 rounded ${
+                  router.pathname === "/login" ? "bg-slate-300" : ""
+                }`}
+              >
+                <Link className={NavSpanStyle} href="/login">
+                  Log In
+                </Link>
+              </div>
+              <div
+                className={`p-2 rounded ${
+                  router.pathname === "/signup" ? "bg-slate-300" : ""
+                }`}
+              >
+                <Link className={NavSpanStyle} href="/signup">
+                  Sign Up
+                </Link>
+              </div>
+              <div className="p-2 rounded">
+                <span className={NavSpanStyle} onClick={goToBottom}>
+                  Contact Us
+                </span>
+              </div>
             </li>
           </ul>
         </div>
