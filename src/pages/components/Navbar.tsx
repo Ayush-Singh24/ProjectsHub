@@ -14,13 +14,19 @@ export default function Navbar() {
     <div className="max-w-[1550px] w-full mx-auto">
       <div className="p-5 max-w-[1550px] w-full fixed bg-gray-50 flex justify-between">
         <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
-        <button
-          className="relative font-montserrat font-bold text-sm before:content-[''] before:h-1 before:absolute before:top-full before:left-0 before:w-0 
-          before:-z-10 before:transition-all before:bg-gray-500 before:rounded hover:before:w-full"
-          onClick={goToBottom}
-        >
-          Contact Us
-        </button>
+        <div>
+          <ul>
+            <li>
+              <span
+                className="relative font-montserrat font-bold text-sm before:content-[''] before:h-1 before:absolute before:top-full before:left-0 before:w-0 
+          before:-z-10 before:transition-all before:bg-gray-500 before:rounded hover:before:w-full cursor-pointer"
+                onClick={goToBottom}
+              >
+                Contact Us
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
