@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Navbar() {
   const bottomScrollPosition: ScrollToOptions = {
     top: 100,
     left: 0,
