@@ -30,8 +30,8 @@ export default function Navbar() {
 
   return (
     <div className="max-w-[1550px] w-full mx-auto relative z-50">
-      <div className="p-2 md:p-2 max-w-[1550px] w-full fixed bg-gray-100 flex justify-between items-center text-gray-500">
-        <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
+      <div className="p-2 md:p-[0.01rem] max-w-[1550px] w-full fixed bg-gray-100 flex justify-between items-center text-gray-500">
+        <h2 className="font-montserrat font-bold text-sm px-2">Projects hub</h2>
         <div className="">
           <div className="md:hidden">
             <input
@@ -60,8 +60,8 @@ export default function Navbar() {
             </label>
           </div>
           <ul
-            className={`fixed h-screen flex flex-col p-2 gap-2 transition-all md:flex md:flex-row z-50 md:static -right-[300px] top-[54px] md:h-full md:w-fit bg-gray-100 w-1/2 ${
-              showNav ? " right-[0%]" : ""
+            className={`fixed h-screen flex flex-col p-2 gap-2 transition-all md:flex md:flex-row z-50 md:static -right-[400px] top-[54px] md:h-full md:w-fit bg-gray-100 w-1/2 ${
+              showNav ? " right-[0.0001px]" : ""
             }`}
           >
             <li
