@@ -60,7 +60,7 @@ export default function Navbar() {
             </label>
           </div>
           <ul
-            className={`fixed h-screen flex flex-col gap-2 transition-all md:flex md:flex-row z-50 md:gap-5 md:static -right-[300px] top-[54px] md:h-full md:w-fit bg-gray-100 w-1/2 ${
+            className={`fixed h-screen flex flex-col p-2 gap-2 transition-all md:flex md:flex-row z-50 md:gap-5 md:static -right-[300px] top-[54px] md:h-full md:w-fit bg-gray-100 w-1/2 ${
               showNav ? " right-[0%]" : ""
             }`}
           >
