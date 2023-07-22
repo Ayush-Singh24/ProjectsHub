@@ -59,7 +59,7 @@ export default function Navbar() {
             </label>
           </div>
           <ul
-            className={`fixed h-screen z-[2000] flex flex-col gap-2 transition-all md:flex md:gap-5 -right-[300px] top-[8.2%] ${
+            className={`fixed h-screen z-[2000] flex flex-col gap-2 transition-all md:flex md:flex-row md:gap-5 md:static -right-[300px] top-[54px] md:h-full md:w-fit ${
               showNav ? "bg-gray-100 right-[0px] w-1/2" : ""
             }`}
           >
