@@ -25,49 +25,47 @@ export default function Navbar() {
       <div className="p-3 md:p-2 max-w-[1550px] w-full fixed bg-gray-100 flex justify-between items-center text-gray-500">
         <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
         <div className="hidden md:block">
-          <ul>
-            <li className="flex gap-5">
-              <div
-                className={`p-2 rounded transition-all ${
-                  router.pathname === "/" ? NavLinkActiveState : ""
-                }`}
-              >
-                <Link className={NavSpanStyle} href="/">
-                  Home
-                </Link>
-              </div>
-              <div
-                className={`p-2 rounded transition-all ${
-                  router.pathname === "/plans" ? NavLinkActiveState : ""
-                }`}
-              >
-                <Link className={NavSpanStyle} href="/plans">
-                  Plans
-                </Link>
-              </div>
-              <div
-                className={`p-2 rounded transition-all ${
-                  router.pathname === "/login" ? NavLinkActiveState : ""
-                }`}
-              >
-                <Link className={NavSpanStyle} href="/login">
-                  Log In
-                </Link>
-              </div>
-              <div
-                className={`p-2 rounded transition-all ${
-                  router.pathname === "/signup" ? NavLinkActiveState : ""
-                }`}
-              >
-                <Link className={NavSpanStyle} href="/signup">
-                  Sign Up
-                </Link>
-              </div>
-              <div className="p-2 rounded transition-all">
-                <span className={NavSpanStyle} onClick={goToBottom}>
-                  Contact Us
-                </span>
-              </div>
+          <ul className="flex gap-5">
+            <li
+              className={`p-2 rounded transition-all ${
+                router.pathname === "/" ? NavLinkActiveState : ""
+              }`}
+            >
+              <Link className={NavSpanStyle} href="/">
+                Home
+              </Link>
+            </li>
+            <li
+              className={`p-2 rounded transition-all ${
+                router.pathname === "/plans" ? NavLinkActiveState : ""
+              }`}
+            >
+              <Link className={NavSpanStyle} href="/plans">
+                Plans
+              </Link>
+            </li>
+            <li
+              className={`p-2 rounded transition-all ${
+                router.pathname === "/login" ? NavLinkActiveState : ""
+              }`}
+            >
+              <Link className={NavSpanStyle} href="/login">
+                Log In
+              </Link>
+            </li>
+            <li
+              className={`p-2 rounded transition-all ${
+                router.pathname === "/signup" ? NavLinkActiveState : ""
+              }`}
+            >
+              <Link className={NavSpanStyle} href="/signup">
+                Sign Up
+              </Link>
+            </li>
+            <li className="p-2 rounded transition-all">
+              <span className={NavSpanStyle} onClick={goToBottom}>
+                Contact Us
+              </span>
             </li>
           </ul>
         </div>
