@@ -28,10 +28,10 @@ export default function Navbar() {
   };
 
   return (
-    <div className="max-w-[1550px] w-full mx-auto">
+    <div className="max-w-[1550px] w-full mx-auto relative z-50">
       <div className="p-2 md:p-2 max-w-[1550px] w-full fixed bg-gray-100 flex justify-between items-center text-gray-500">
         <h2 className="font-montserrat font-bold text-sm">Projects hub</h2>
-        <div className="relative z-[2000]">
+        <div className="">
           <div className="md:hidden">
             <input
               type="checkbox"
@@ -59,8 +59,8 @@ export default function Navbar() {
             </label>
           </div>
           <ul
-            className={`fixed h-screen z-[2000] flex flex-col gap-2 transition-all md:flex md:flex-row md:gap-5 md:static -right-[300px] top-[54px] md:h-full md:w-fit ${
-              showNav ? "bg-gray-100 right-[0px] w-1/2" : ""
+            className={`absolute h-screen flex flex-col gap-2 transition-all md:flex md:flex-row z-50 md:gap-5 md:static -right-[200px] top-[54px] md:h-full md:w-fit ${
+              showNav ? "bg-gray-100 right-[0%] w-1/2" : ""
             }`}
           >
             <li
