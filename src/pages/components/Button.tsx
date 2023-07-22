@@ -7,7 +7,7 @@ interface ButtonProps {
 export default function Button({ handleClick, buttonType, text }: ButtonProps) {
   return (
     <button
-      className="self-center bg-secondary-400 rounded font-medium py-2 px-4 transition-all hover:scale-105 hover:bg-secondary-500 active:scale-100"
+      className="self-center px-4 py-2 font-medium transition-all rounded bg-secondary-400 hover:scale-105 hover:bg-secondary-500 active:scale-100"
       onClick={handleClick}
       type={buttonType}
     >

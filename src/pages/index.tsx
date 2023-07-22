@@ -7,8 +7,8 @@ export default function Home() {
 
   return (
     <section className="bg-gray-20 h-full max-w-[1550px] p-5 flex flex-col justify-center mx-auto">
-      <div className="font-montserrat flex flex-col gap-5 justify-between items-center h-3/4 my-auto lg:flex-row lg:justify-center">
-        <div className="flex flex-col gap-5 text-center justify-center items-center max-w-3xl basis-1/2">
+      <div className="flex flex-col items-center justify-between gap-5 my-auto font-montserrat h-3/4 lg:flex-row lg:justify-center">
+        <div className="flex flex-col items-center justify-center max-w-3xl gap-5 text-center basis-1/2">
           <div className="flex flex-col gap-2">
             <h2
               className="relative text-5xl font-bold after:content-['']
@@ -20,7 +20,7 @@ export default function Home() {
             </h2>
             <p className="text-xl">Revolutionary projects</p>
           </div>
-          <p className="text-base font-dmsans font-bold text-left">
+          <p className="text-base font-bold text-left font-dmsans">
             We make price worthy projects. Lorem ipsum dolor, sit amet
             consectetur adipisicing elit. Vel, tempora dicta. Corporis non
             ratione repelle
@@ -37,7 +37,7 @@ export default function Home() {
           <img
             src="/images/HomePageGraphic.png"
             alt="home"
-            className="bg-gray-20 h-full"
+            className="h-full bg-gray-20"
           />
         </div>
       </div>
