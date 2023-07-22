@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Footer from "./Footer";
 
 export default function Navbar() {
   const router = useRouter();
@@ -59,8 +60,8 @@ export default function Navbar() {
             </label>
           </div>
           <ul
-            className={`absolute h-screen flex flex-col gap-2 transition-all md:flex md:flex-row z-50 md:gap-5 md:static -right-[200px] top-[54px] md:h-full md:w-fit ${
-              showNav ? "bg-gray-100 right-[0%] w-1/2" : ""
+            className={`fixed h-screen flex flex-col gap-2 transition-all md:flex md:flex-row z-50 md:gap-5 md:static -right-[300px] top-[54px] md:h-full md:w-fit bg-gray-100 w-1/2 ${
+              showNav ? " right-[0%]" : ""
             }`}
           >
             <li
@@ -99,10 +100,26 @@ export default function Navbar() {
                 Sign Up
               </Link>
             </li>
-            <li className="p-2 rounded transition-all">
+            <li className="p-2 rounded transition-all hidden md:list-item">
               <span className={NavSpanStyle} onClick={goToBottom}>
                 Contact Us
               </span>
+            </li>
+            <li className="p-2 md:hidden flex flex-col w-full mt-auto gap-5 mb-[25%] border-t-2 border-gray-500">
+              <div className="flex flex-col gap-2">
+                <span>Contact Us :</span>
+                <div className="flex items-center">
+                  <img src="icons/whatsapp.png" alt="wp" className="h-5" />
+                  <p>: +91 9999999999</p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="">About Us :</span>
+                <p className="">
+                  We are students of SRM-KTR college and wanted to make a cool
+                  project as a side hustle
+                </p>
+              </div>
             </li>
           </ul>
         </div>
