@@ -105,11 +105,15 @@ export default function Navbar() {
                 Contact Us
               </span>
             </li>
-            <li className="p-2 md:hidden flex flex-col w-full mt-auto gap-5 mb-[25%] border-t-2 border-gray-500">
+            <li className="p-2 md:hidden flex flex-col w-full mt-auto gap-5 mb-[25%] border-t-2 border-gray-500 text-xs">
               <div className="flex flex-col gap-2">
                 <span>Contact Us :</span>
                 <div className="flex items-center">
-                  <img src="icons/whatsapp.png" alt="wp" className="h-5" />
+                  <img
+                    src="icons/whatsapp.png"
+                    alt="wp"
+                    className="h-4 md:h-5"
+                  />
                   <p>: +91 9999999999</p>
                 </div>
               </div>
