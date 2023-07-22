@@ -15,7 +15,7 @@ export default function Navbar() {
   };
 
   const NavSpanStyle: string =
-    "relative font-montserrat font-bold text-sm before:content-[''] before:h-1 before:absolute before:top-full before:left-0 before:w-0 before:z-10 before:transition-all before:bg-gray-500 before:rounded hover:before:w-full cursor-pointer pb-1 rounded";
+    "relative block font-montserrat font-bold text-sm w-full h-full md:w-fit md:h-fit before:content-[''] before:h-1 before:absolute before:top-full before:left-0 before:w-0 before:z-10 before:transition-all before:bg-gray-500 before:rounded md:hover:before:w-full cursor-pointer rounded";
 
   const NavLinkActiveState: string = "bg-primary-300 hover:bg-primary-500";
 
@@ -60,12 +60,12 @@ export default function Navbar() {
             </label>
           </div>
           <ul
-            className={`fixed h-screen flex flex-col p-2 gap-2 transition-all md:flex md:flex-row z-50 md:gap-5 md:static -right-[300px] top-[54px] md:h-full md:w-fit bg-gray-100 w-1/2 ${
+            className={`fixed h-screen flex flex-col p-2 gap-2 transition-all md:flex md:flex-row z-50 md:static -right-[300px] top-[54px] md:h-full md:w-fit bg-gray-100 w-1/2 ${
               showNav ? " right-[0%]" : ""
             }`}
           >
             <li
-              className={`p-2 rounded transition-all ${
+              className={`p-2 md:py-2 md:px-3 rounded transition-all ${
                 router.pathname === "/" ? NavLinkActiveState : ""
               }`}
             >
@@ -74,7 +74,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li
-              className={`p-2 rounded transition-all ${
+              className={`p-2 md:py-2 md:px-3 rounded transition-all ${
                 router.pathname === "/plans" ? NavLinkActiveState : ""
               }`}
             >
@@ -87,7 +87,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li
-              className={`p-2 rounded transition-all ${
+              className={`p-2 md:py-2 md:px-3 rounded transition-all ${
                 router.pathname === "/login" ? NavLinkActiveState : ""
               }`}
             >
@@ -96,7 +96,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li
-              className={`p-2 rounded transition-all ${
+              className={`p-2 md:py-2 md:px-3 rounded transition-all ${
                 router.pathname === "/signup" ? NavLinkActiveState : ""
               }`}
             >
