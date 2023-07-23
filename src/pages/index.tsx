@@ -29,7 +29,7 @@ export default function Home() {
             handleClick={(
               event: React.MouseEvent<HTMLButtonElement, MouseEvent>
             ) => router.push("/plans")}
-            buttonType="button"
+            type="button"
             text="Buy Now!"
           />
         </div>
