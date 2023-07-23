@@ -17,7 +17,9 @@ export default function InputBox({
       <input
         type={type}
         className="p-2 rounded focus:outline-none bg-gray-50"
-        placeholder={`Enter ${name}`}
+        placeholder={
+          name !== "Confirm Password" ? `Enter ${name}` : "Re-enter Password"
+        }
         onChange={onChange}
         required
       />
