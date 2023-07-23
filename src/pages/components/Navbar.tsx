@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Footer from "./Footer";
 
 export default function Navbar() {
   const router = useRouter();
@@ -69,7 +68,11 @@ export default function Navbar() {
                 router.pathname === "/" ? NavLinkActiveState : ""
               }`}
             >
-              <Link className={NavSpanStyle} href="/">
+              <Link
+                className={NavSpanStyle}
+                href="/"
+                onClick={() => setShowNav(false)}
+              >
                 Home
               </Link>
             </li>
@@ -91,7 +94,11 @@ export default function Navbar() {
                 router.pathname === "/login" ? NavLinkActiveState : ""
               }`}
             >
-              <Link className={NavSpanStyle} href="/login">
+              <Link
+                className={NavSpanStyle}
+                href="/login"
+                onClick={() => setShowNav(false)}
+              >
                 Log In
               </Link>
             </li>
@@ -100,7 +107,11 @@ export default function Navbar() {
                 router.pathname === "/signup" ? NavLinkActiveState : ""
               }`}
             >
-              <Link className={NavSpanStyle} href="/signup">
+              <Link
+                className={NavSpanStyle}
+                href="/signup"
+                onClick={() => setShowNav(false)}
+              >
                 Sign Up
               </Link>
             </li>
