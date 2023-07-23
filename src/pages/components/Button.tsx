@@ -1,5 +1,7 @@
 interface ButtonProps {
-  handleClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  handleClick?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
   buttonType?: "submit" | "button" | "reset" | undefined;
   text: string;
 }
