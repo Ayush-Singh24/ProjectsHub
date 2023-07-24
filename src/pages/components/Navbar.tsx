@@ -43,7 +43,7 @@ export default function Navbar() {
             />
             <label
               htmlFor="nav-toggle"
-              className={`h-10 w-10 rounded-[50%] flex justify-center items-center transition-all hover:bg-primary-300 ${
+              className={`h-10 w-10 rounded-[50%] flex justify-center items-center transition-all ${
                 showNav ? "bg-primary-500" : ""
               }`}
             >
@@ -64,7 +64,7 @@ export default function Navbar() {
             }`}
           >
             <li
-              className={`p-2 md:py-2 md:px-3 rounded transition-all ${
+              className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500 ${
                 router.pathname === "/" ? NavLinkActiveState : ""
               }`}
             >
@@ -77,7 +77,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li
-              className={`p-2 md:py-2 md:px-3 rounded transition-all ${
+              className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500 ${
                 router.pathname === "/plans" ? NavLinkActiveState : ""
               }`}
             >
@@ -90,7 +90,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li
-              className={`p-2 md:py-2 md:px-3 rounded transition-all ${
+              className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500 ${
                 router.pathname === "/login" ? NavLinkActiveState : ""
               }`}
             >
@@ -103,7 +103,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li
-              className={`p-2 md:py-2 md:px-3 rounded transition-all ${
+              className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500 ${
                 router.pathname === "/signup" ? NavLinkActiveState : ""
               }`}
             >
