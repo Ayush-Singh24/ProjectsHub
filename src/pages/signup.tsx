@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Button from "./components/Button";
 import InputBox from "./components/InputBox";
-import Loader from "./components/Loader";
 import { useRouter } from "next/router";
 
 export default function SignUp() {
@@ -39,7 +38,7 @@ export default function SignUp() {
             type="email"
             value={email}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setUsername(event.target.value);
+              setEmail(event.target.value);
             }}
           />
           <InputBox
@@ -55,7 +54,7 @@ export default function SignUp() {
             type="password"
             value={confirmPassword}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              setPassword(event.target.value)
+              setConfirmPassword(event.target.value)
             }
           />
           <Button text="Sign Up" type="submit" />
