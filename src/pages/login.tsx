@@ -18,7 +18,7 @@ export default function Login() {
     <section className="bg-gray-20 max-w-[1550px] flex justify-center items-center h-full mx-auto">
       <form
         action="submit"
-        className="w-3/4 border-2 border-gray-500 rounded"
+        className="w-3/4 rounded shadow-2xl"
         onSubmit={handleLogin}
       >
         <div className="flex flex-col gap-4 p-3 bg-white rounded">
