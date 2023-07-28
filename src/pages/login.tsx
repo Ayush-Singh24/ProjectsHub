@@ -22,7 +22,10 @@ export default function Login() {
         onSubmit={handleLogin}
       >
         <div className="flex flex-col gap-4 p-3 bg-white rounded">
-          <h2 className="text-3xl">Login</h2>
+          <div className="flex flex-col items-center justify-center bg-white">
+            <img src="images/user.png" alt="user" className="h-24" />
+            <h2 className="text-3xl">Login</h2>
+          </div>
           <InputBox
             name="Username"
             type="text"

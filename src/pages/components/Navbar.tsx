@@ -30,7 +30,9 @@ export default function Navbar() {
   return (
     <div className="max-w-[1550px] w-full mx-auto relative z-50">
       <div className="p-2 md:p-[0.01rem] max-w-[1550px] w-full fixed bg-gray-100 flex justify-between items-center text-gray-500">
-        <h2 className="px-2 text-sm font-bold font-montserrat">Projects hub</h2>
+        <h2 className="px-2 text-sm font-bold font-montserrat">
+          <img src="/images/logo.png" alt="logo" className="h-8" />
+        </h2>
         <div className="">
           <div className="md:hidden">
             <input
