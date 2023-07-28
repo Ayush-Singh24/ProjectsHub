@@ -20,10 +20,15 @@ export default function SignUp() {
     <section className="bg-gray-20 max-w-[1550px] flex justify-center items-center h-full mx-auto">
       <form
         action="submit"
-        className="w-3/4 rounded shadow-2xl"
+        className="w-3/4 rounded shadow-2xl md:flex md:justify-center"
         onSubmit={handleSignUp}
       >
-        <div className="flex flex-col gap-4 p-3 bg-white rounded">
+        <img
+          src="images/signupPageGraphic.png"
+          alt="image"
+          className="hidden object-cover w-1/2 md:block basis-1/2"
+        />
+        <div className="flex flex-col gap-4 p-3 bg-white rounded md:p-4 lg:p-5 md:rounded-none md:basis-1/2 md:text-base lg:gap-6 lg:text-lg">
           <div className="flex flex-col items-center justify-center bg-white">
             <img src="images/user.png" alt="user" className="h-24" />
             <h2 className="text-3xl">Sign Up</h2>
