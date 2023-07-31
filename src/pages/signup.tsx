@@ -28,7 +28,7 @@ export default function SignUp() {
           alt="image"
           className="hidden object-cover w-1/2 md:block basis-1/2"
         />
-        <div className="flex flex-col justify-center w-full h-full gap-6 p-3 bg-white rounded md:p-4 lg:p-5 md:rounded-none md:basis-1/2 md:text-base lg:text-lg md:h-auto md:w-auto">
+        <div className="flex flex-col justify-center w-full h-full gap-6 p-8 bg-white rounded md:p-4 lg:p-5 md:rounded-none md:basis-1/2 md:text-base lg:text-lg md:h-auto md:w-auto">
           <img
             src="images/backbutton.png"
             alt="backbutton"
