@@ -17,6 +17,8 @@ module.exports = {
         "primary-500": "#FF6B66",
         "secondary-400": "#FFCD58",
         "secondary-500": "#FFC132",
+        "color-error": "#FF9494",
+        "color-success": "#4BB543",
       },
       fontFamily: {
         dmsans: ["DM Sans", "sans-serif"],

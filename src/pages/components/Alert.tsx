@@ -13,15 +13,15 @@ export default function Alert() {
   const dispatch = useDispatch();
 
   const colorVariation = {
-    success: "bg-color-success text-white",
-    error: "bg-color-error text-black",
+    Success: "bg-color-success text-white",
+    Error: "bg-color-error text-black",
   };
 
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
-        alertRef.current?.classList.remove("animate-in, fade-in");
-        alertRef.current?.classList.add("animate-out, fade-out");
+        alertRef.current?.classList.remove("animate-in", "fade-in");
+        alertRef.current?.classList.add("animate-out", "fade-out");
       }, 2500);
       setTimeout(() => {
         dispatch(closeAlert());
@@ -36,8 +36,8 @@ export default function Alert() {
           ref={alertRef}
           className={`absolute flex items-center justify-center px-10 py-5 rounded-lg bottom-5 left-5 ${
             status === AlertStatus.Success
-              ? colorVariation.success
-              : colorVariation.error
+              ? colorVariation.Success
+              : colorVariation.Error
           } animate-in fade-in duration-500`}
         >
           {alertMessage}
