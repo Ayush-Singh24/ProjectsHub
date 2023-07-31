@@ -26,11 +26,11 @@ export default function Login() {
           alt="image"
           className="hidden object-cover w-1/2 md:block basis-1/2"
         />
-        <div className="flex flex-col justify-center w-full h-full gap-8 p-8 bg-white rounded md:p-4 lg:p-5 md:rounded-none md:basis-1/2 md:text-base lg:justify-between lg:text-lg md:h-auto md:w-auto">
+        <div className="flex flex-col justify-center w-full h-full gap-8 p-8 bg-white rounded md:p-4 lg:p-5 md:rounded-none md:basis-1/2 md:text-base md:justify-evenly lg:text-lg md:h-auto md:w-auto">
           <img
             src="images/backbutton.png"
             alt="backbutton"
-            className="absolute w-20 h-20 left-2 top-10 md:hidden noSelect"
+            className="absolute w-20 h-20 top-2 left-2 md:hidden noSelect"
             onClick={() => router.push("/")}
           />
           <div className="flex flex-col items-center justify-center bg-white">
