@@ -33,7 +33,7 @@ export default function Home() {
             text="Buy Now!"
           />
         </div>
-        <div className="h-1/2 md:h-[65%] lg:h-3/4 xl:h-[90%] basis-1/2 flex justify-center items-center">
+        <div className="h-1/2 md:h-[65%] lg:h-3/4 xl:h-[90%] basis-1/2 flex justify-center items-center animate-in fade-in duration-500">
           <img
             src="/images/HomePageGraphic.png"
             alt="home"

@@ -18,7 +18,7 @@ export default function Login() {
     <section className="bg-gray-20 max-w-[1550px] flex justify-center items-center h-full mx-auto">
       <form
         action="submit"
-        className="w-3/4 rounded shadow-2xl md:flex md:justify-center"
+        className="w-3/4 duration-500 rounded shadow-2xl md:flex md:justify-center animate-in fade-in"
         onSubmit={handleLogin}
       >
         <img
