@@ -6,4 +6,5 @@ export const AlertStatus = {
 export const ApiRoutes = {
   UserLogin: "/auth/login",
   UserSignUp: "/auth/signup",
+  UserLogout: "/auth/logout",
 };
