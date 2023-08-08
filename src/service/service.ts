@@ -5,7 +5,7 @@ const BACKEND_URL: string = process.env.BACKEND_URL || "http://localhost:8000";
 const makePostRequest = async (
   url: string,
   data: object,
-  signal: AbortSignal
+  signal?: AbortSignal
 ) => {
   const response = await fetch(BACKEND_URL + url, {
     method: "POST",
@@ -25,7 +25,7 @@ const makePostRequest = async (
   };
 };
 
-const makeGetRequest = async (url: string, signal: AbortSignal) => {
+const makeGetRequest = async (url: string, signal?: AbortSignal) => {
   const response = await fetch(BACKEND_URL + url, {
     method: "GET",
     headers: {
@@ -44,13 +44,13 @@ const makeGetRequest = async (url: string, signal: AbortSignal) => {
 };
 
 export class Service {
-  static async signup(data: object, signal: AbortSignal) {
+  static async signup(data: object, signal?: AbortSignal) {
     return await makePostRequest(ApiRoutes.UserSignUp, data, signal);
   }
-  static async login(data: object, signal: AbortSignal) {
+  static async login(data: object, signal?: AbortSignal) {
     return await makePostRequest(ApiRoutes.UserLogin, data, signal);
   }
-  static async logout(data: object, signal: AbortSignal) {
+  static async logout(data: object, signal?: AbortSignal) {
     return await makeGetRequest(ApiRoutes.UserLogout, signal);
   }
 }

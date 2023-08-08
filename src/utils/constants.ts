@@ -8,3 +8,8 @@ export const ApiRoutes = {
   UserSignUp: "/auth/signup",
   UserLogout: "/auth/logout",
 };
+
+export const ResponseStatus = {
+  Ok: 200,
+  Created: 201,
+};

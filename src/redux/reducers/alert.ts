@@ -14,7 +14,8 @@ const alertSlice = createSlice({
       action: PayloadAction<{ message: string; status: string }>
     ) {
       state.alertMessage = action.payload.message;
-      state.status = action.payload.message;
+      state.status = action.payload.status;
+      state.isOpen = true;
     },
     closeAlert(state) {
       state.isOpen = false;

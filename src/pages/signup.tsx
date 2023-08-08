@@ -2,19 +2,51 @@ import { useState } from "react";
 import Button from "./components/Button";
 import InputBox from "./components/InputBox";
 import { useRouter } from "next/router";
+import { Service } from "@/service/service";
+import { useDispatch } from "react-redux";
+import { openAlert } from "@/redux/reducers/alert";
+import { AlertStatus, ResponseStatus } from "@/utils/constants";
+import Loader from "./components/Loader";
 
 export default function SignUp() {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleSignUp = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push("/login");
+    if (!username || !email || !password || password !== confirmPassword) {
+      dispatch(
+        openAlert({
+          status: AlertStatus.Error,
+          message: "Enter vaild credentials",
+        })
+      );
+    } else {
+      setIsLoading(true);
+      const response = await Service.signup({ username, email, password });
+      if (response.status === ResponseStatus.Created) {
+        dispatch(
+          openAlert({ status: AlertStatus.Success, message: response.message })
+        );
+        router.push("/login");
+      } else {
+        setIsLoading(false);
+        dispatch(
+          openAlert({ status: AlertStatus.Success, message: response.message })
+        );
+      }
+    }
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <section className="bg-gray-20 max-w-[1550px] flex justify-center items-center h-full mx-auto">
