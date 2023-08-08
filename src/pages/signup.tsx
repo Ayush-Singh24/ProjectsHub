@@ -27,6 +27,7 @@ export default function SignUp() {
           message: "Enter vaild credentials",
         })
       );
+      return;
     } else {
       setIsLoading(true);
       const response = await Service.signup({ username, email, password });

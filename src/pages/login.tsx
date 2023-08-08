@@ -2,17 +2,50 @@ import { useRouter } from "next/router";
 import Button from "./components/Button";
 import InputBox from "./components/InputBox";
 import { ChangeEvent, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { openAlert } from "@/redux/reducers/alert";
+import { AlertStatus, ResponseStatus } from "@/utils/constants";
+import { Service } from "@/service/service";
+import Loader from "./components/Loader";
 
 export default function Login() {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push("/dashboard");
+    if (!username || !password) {
+      dispatch(
+        openAlert({
+          status: AlertStatus.Error,
+          message: "Enter all credentials",
+        })
+      );
+      return;
+    } else {
+      setIsLoading(true);
+      const response = await Service.login({ username, password });
+      if (response.status === ResponseStatus.Ok) {
+        dispatch(
+          openAlert({ status: AlertStatus.Success, message: response.message })
+        );
+        router.push("/dashboard");
+      } else {
+        setIsLoading(false);
+        dispatch(
+          openAlert({ status: AlertStatus.Error, message: response.message })
+        );
+      }
+    }
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <section className="bg-gray-20 max-w-[1550px] flex justify-center items-center h-full mx-auto">
