@@ -53,4 +53,7 @@ export class Service {
   static async logout(data: object, signal?: AbortSignal) {
     return await makeGetRequest(ApiRoutes.UserLogout, signal);
   }
+  static async verify(signal?: AbortSignal) {
+    return await makeGetRequest(ApiRoutes.verifySession, signal);
+  }
 }
