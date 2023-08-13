@@ -3,11 +3,14 @@ import Button from "./components/Button";
 import { useRouter } from "next/router";
 import { useAuth } from "@/hooks/useAuth";
 import Loader from "./components/Loader";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export default function Home() {
   const router = useRouter();
 
-  const isAuth = useAuth();
+  const { isAuth } = useSelector((state: RootState) => state.auth);
+  useAuth();
 
   if (isAuth === null) {
     return <Loader />;

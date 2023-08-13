@@ -1,14 +1,14 @@
-import { useAuth } from "@/hooks/useAuth";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import NavItem from "./NavItem";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export default function Navbar() {
   const router = useRouter();
 
   const [showNav, setShowNav] = useState<boolean>(false);
-  const isAuth = useAuth();
+  const { isAuth } = useSelector((state: RootState) => state.auth);
 
   const bottomScrollPosition: ScrollToOptions = {
     top: 100,
@@ -18,8 +18,6 @@ export default function Navbar() {
 
   const NavSpanStyle: string =
     "relative block font-montserrat font-bold text-sm w-full h-full md:w-fit md:h-fit before:content-[''] before:h-1 before:absolute before:top-full before:left-0 before:w-0 before:z-10 before:transition-all before:bg-gray-500 before:rounded md:hover:before:w-full cursor-pointer rounded";
-
-  const NavLinkActiveState: string = "bg-primary-300 hover:bg-primary-500";
 
   const goToBottom = () => {
     console.log("contact us button clicked!");
@@ -70,8 +68,24 @@ export default function Navbar() {
           >
             <NavItem name="Home" route="/" setShowNav={setShowNav} />
             <NavItem name="Plans" route="/plans" setShowNav={setShowNav} />
-            <NavItem name="Log in" route="/login" setShowNav={setShowNav} />
-            <NavItem name="Sign Up" route="/signup" setShowNav={setShowNav} />
+            {isAuth !== null && isAuth ? (
+              <>
+                <NavItem
+                  name="Dashboard"
+                  route="/dashboard"
+                  setShowNav={setShowNav}
+                />
+              </>
+            ) : (
+              <>
+                <NavItem name="Log in" route="/login" setShowNav={setShowNav} />
+                <NavItem
+                  name="Sign Up"
+                  route="/signup"
+                  setShowNav={setShowNav}
+                />
+              </>
+            )}
             <li className="hidden p-2 transition-all rounded md:list-item">
               <span className={NavSpanStyle} onClick={goToBottom}>
                 Contact Us

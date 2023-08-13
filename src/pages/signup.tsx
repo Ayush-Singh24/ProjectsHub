@@ -8,6 +8,8 @@ import { openAlert } from "@/redux/reducers/alert";
 import { AlertStatus, ResponseStatus } from "@/utils/constants";
 import Loader from "./components/Loader";
 import { useAuth } from "@/hooks/useAuth";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export default function SignUp() {
   const router = useRouter();
@@ -18,7 +20,8 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const isAuth = useAuth();
+  const { isAuth } = useSelector((state: RootState) => state.auth);
+  useAuth();
 
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
