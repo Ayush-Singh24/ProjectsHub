@@ -8,16 +8,10 @@ import { RootState } from "@/redux/store";
 
 export default function Home() {
   const router = useRouter();
-
   const { isAuth } = useSelector((state: RootState) => state.auth);
   useAuth();
 
   if (isAuth === null) {
-    return <Loader />;
-  }
-
-  if (isAuth) {
-    router.push("/dashboard");
     return <Loader />;
   }
 

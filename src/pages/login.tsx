@@ -10,7 +10,7 @@ import Loader from "./components/Loader";
 import { useAuth } from "@/hooks/useAuth";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import { setIsAuth } from "@/redux/reducers/auth";
+import { setIsAuth, setIsLoading } from "@/redux/reducers/auth";
 
 export default function Login() {
   const router = useRouter();
@@ -18,8 +18,7 @@ export default function Login() {
 
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { isAuth } = useSelector((state: RootState) => state.auth);
+  const { isAuth, isLoading } = useSelector((state: RootState) => state.auth);
   useAuth();
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -33,7 +32,7 @@ export default function Login() {
       );
       return;
     } else {
-      setIsLoading(true);
+      dispatch(setIsLoading(true));
       const response = await Service.login({ username, password });
       if (response.status === ResponseStatus.Ok) {
         dispatch(
@@ -41,8 +40,9 @@ export default function Login() {
         );
         dispatch(setIsAuth(true));
         router.push("/dashboard");
+        dispatch(setIsLoading(false));
       } else {
-        setIsLoading(false);
+        dispatch(setIsLoading(false));
         dispatch(
           openAlert({ status: AlertStatus.Error, message: response.message })
         );

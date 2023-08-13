@@ -10,6 +10,7 @@ import Loader from "./components/Loader";
 import { useAuth } from "@/hooks/useAuth";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import { setIsLoading } from "@/redux/reducers/auth";
 
 export default function SignUp() {
   const router = useRouter();
@@ -19,8 +20,7 @@ export default function SignUp() {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { isAuth } = useSelector((state: RootState) => state.auth);
+  const { isAuth, isLoading } = useSelector((state: RootState) => state.auth);
   useAuth();
 
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -34,15 +34,16 @@ export default function SignUp() {
       );
       return;
     } else {
-      setIsLoading(true);
+      dispatch(setIsLoading(true));
       const response = await Service.signup({ username, email, password });
       if (response.status === ResponseStatus.Created) {
         dispatch(
           openAlert({ status: AlertStatus.Success, message: response.message })
         );
         router.push("/login");
+        dispatch(setIsLoading(false));
       } else {
-        setIsLoading(false);
+        dispatch(setIsLoading(false));
         dispatch(
           openAlert({ status: AlertStatus.Success, message: response.message })
         );
