@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { openAlert } from "@/redux/reducers/alert";
 import { AlertStatus, ResponseStatus } from "@/utils/constants";
 import Loader from "./components/Loader";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function SignUp() {
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const isAuth = useAuth();
 
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -45,10 +47,14 @@ export default function SignUp() {
     }
   };
 
-  if (isLoading) {
+  if (isAuth === null || isLoading) {
     return <Loader />;
   }
 
+  if (isAuth) {
+    router.push("/dashboard");
+    return <Loader />;
+  }
   return (
     <section className="bg-gray-20 max-w-[1550px] flex justify-center items-center h-full mx-auto">
       <form

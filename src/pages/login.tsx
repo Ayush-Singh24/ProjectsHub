@@ -7,6 +7,7 @@ import { openAlert } from "@/redux/reducers/alert";
 import { AlertStatus, ResponseStatus } from "@/utils/constants";
 import { Service } from "@/service/service";
 import Loader from "./components/Loader";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Login() {
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function Login() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const isAuth = useAuth();
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -43,7 +45,12 @@ export default function Login() {
     }
   };
 
-  if (isLoading) {
+  if (isAuth === null || isLoading) {
+    return <Loader />;
+  }
+
+  if (isAuth) {
+    router.push("/dashboard");
     return <Loader />;
   }
 
