@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "./components/Button";
+import Button from "../components/Button";
 import { useRouter } from "next/router";
 import { useAuth } from "@/hooks/useAuth";
-import Loader from "./components/Loader";
+import Loader from "../components/Loader";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 

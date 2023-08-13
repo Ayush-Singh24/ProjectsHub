@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Button from "./components/Button";
-import InputBox from "./components/InputBox";
+import Button from "../components/Button";
+import InputBox from "../components/InputBox";
 import { useRouter } from "next/router";
 import { Service } from "@/service/service";
 import { useDispatch } from "react-redux";
 import { openAlert } from "@/redux/reducers/alert";
 import { AlertStatus, ResponseStatus } from "@/utils/constants";
-import Loader from "./components/Loader";
+import Loader from "../components/Loader";
 import { useAuth } from "@/hooks/useAuth";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
