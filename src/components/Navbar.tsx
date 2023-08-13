@@ -15,7 +15,7 @@ export default function Navbar() {
   const dispatch = useDispatch();
 
   const [showNav, setShowNav] = useState<boolean>(false);
-  const { isAuth, isLoading } = useSelector((state: RootState) => state.auth);
+  const { isAuth } = useSelector((state: RootState) => state.auth);
 
   const bottomScrollPosition: ScrollToOptions = {
     top: 100,
@@ -42,7 +42,7 @@ export default function Navbar() {
         openAlert({ message: response.message, status: AlertStatus.Success })
       );
       dispatch(setIsAuth(null));
-      router.push("/login");
+      router.push("/");
     }
   };
 
@@ -98,9 +98,9 @@ export default function Navbar() {
                   setShowNav={setShowNav}
                 />
                 <li className="p-2 transition-all rounded md:py-2 md:px-3 noSelect">
-                  <button className={NavSpanStyle} onClick={handleLogout}>
+                  <span className={NavSpanStyle} onClick={handleLogout}>
                     Log Out
-                  </button>
+                  </span>
                 </li>
               </>
             ) : (
