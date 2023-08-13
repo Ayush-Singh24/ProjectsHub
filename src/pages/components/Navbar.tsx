@@ -1,11 +1,14 @@
+import { useAuth } from "@/hooks/useAuth";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import NavItem from "./NavItem";
 
 export default function Navbar() {
   const router = useRouter();
 
   const [showNav, setShowNav] = useState<boolean>(false);
+  const isAuth = useAuth();
 
   const bottomScrollPosition: ScrollToOptions = {
     top: 100,
@@ -65,58 +68,10 @@ export default function Navbar() {
               showNav ? " right-[0.0001px]" : ""
             }`}
           >
-            <li
-              className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500 ${
-                router.pathname === "/" ? NavLinkActiveState : ""
-              }`}
-            >
-              <Link
-                className={NavSpanStyle}
-                href="/"
-                onClick={() => setShowNav(false)}
-              >
-                Home
-              </Link>
-            </li>
-            <li
-              className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500 ${
-                router.pathname === "/plans" ? NavLinkActiveState : ""
-              }`}
-            >
-              <Link
-                className={NavSpanStyle}
-                href="/plans"
-                onClick={() => setShowNav(false)}
-              >
-                Plans
-              </Link>
-            </li>
-            <li
-              className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500 ${
-                router.pathname === "/login" ? NavLinkActiveState : ""
-              }`}
-            >
-              <Link
-                className={NavSpanStyle}
-                href="/login"
-                onClick={() => setShowNav(false)}
-              >
-                Log In
-              </Link>
-            </li>
-            <li
-              className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500 ${
-                router.pathname === "/signup" ? NavLinkActiveState : ""
-              }`}
-            >
-              <Link
-                className={NavSpanStyle}
-                href="/signup"
-                onClick={() => setShowNav(false)}
-              >
-                Sign Up
-              </Link>
-            </li>
+            <NavItem name="Home" route="/" setShowNav={setShowNav} />
+            <NavItem name="Plans" route="/plans" setShowNav={setShowNav} />
+            <NavItem name="Log in" route="/login" setShowNav={setShowNav} />
+            <NavItem name="Sign Up" route="/signup" setShowNav={setShowNav} />
             <li className="hidden p-2 transition-all rounded md:list-item">
               <span className={NavSpanStyle} onClick={goToBottom}>
                 Contact Us
