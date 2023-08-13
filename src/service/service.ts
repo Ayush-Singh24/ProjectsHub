@@ -50,7 +50,7 @@ export class Service {
   static async login(data: object, signal?: AbortSignal) {
     return await makePostRequest(ApiRoutes.UserLogin, data, signal);
   }
-  static async logout(data: object, signal?: AbortSignal) {
+  static async logout(signal?: AbortSignal) {
     return await makeGetRequest(ApiRoutes.UserLogout, signal);
   }
   static async verify(signal?: AbortSignal) {

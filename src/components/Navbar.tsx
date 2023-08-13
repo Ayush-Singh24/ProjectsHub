@@ -3,12 +3,19 @@ import { useState } from "react";
 import NavItem from "./NavItem";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import { Service } from "@/service/service";
+import { AlertStatus, ResponseStatus } from "@/utils/constants";
+import { useDispatch } from "react-redux";
+import { openAlert } from "@/redux/reducers/alert";
+import { setIsAuth } from "@/redux/reducers/auth";
+import Loader from "./Loader";
 
 export default function Navbar() {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const [showNav, setShowNav] = useState<boolean>(false);
-  const { isAuth } = useSelector((state: RootState) => state.auth);
+  const { isAuth, isLoading } = useSelector((state: RootState) => state.auth);
 
   const bottomScrollPosition: ScrollToOptions = {
     top: 100,
@@ -26,6 +33,17 @@ export default function Navbar() {
 
   const handleNav = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShowNav(event.target.checked);
+  };
+
+  const handleLogout = async () => {
+    const response = await Service.logout();
+    if (response.status === ResponseStatus.Ok) {
+      dispatch(
+        openAlert({ message: response.message, status: AlertStatus.Success })
+      );
+      dispatch(setIsAuth(null));
+      router.push("/login");
+    }
   };
 
   if (isAuth === null) {
@@ -79,10 +97,15 @@ export default function Navbar() {
                   route="/dashboard"
                   setShowNav={setShowNav}
                 />
+                <li className="p-2 transition-all rounded md:py-2 md:px-3 noSelect">
+                  <button className={NavSpanStyle} onClick={handleLogout}>
+                    Log Out
+                  </button>
+                </li>
               </>
             ) : (
               <>
-                <NavItem name="Log in" route="/login" setShowNav={setShowNav} />
+                <NavItem name="Log In" route="/login" setShowNav={setShowNav} />
                 <NavItem
                   name="Sign Up"
                   route="/signup"
