@@ -51,9 +51,9 @@ export default function SignUp() {
     }
   };
 
-  if (isAuth === null || isLoading) {
-    return <Loader />;
-  }
+  // if (isAuth === null || isLoading) {
+  //   return <Loader />;
+  // }
 
   if (isAuth) {
     router.push("/dashboard");
