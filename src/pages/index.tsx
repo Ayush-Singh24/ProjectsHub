@@ -1,9 +1,22 @@
 import React from "react";
 import Button from "./components/Button";
 import { useRouter } from "next/router";
+import { useAuth } from "@/hooks/useAuth";
+import Loader from "./components/Loader";
 
 export default function Home() {
   const router = useRouter();
+
+  const isAuth = useAuth();
+
+  if (isAuth === null) {
+    return <Loader />;
+  }
+
+  if (isAuth) {
+    router.push("/dashboard");
+    return <Loader />;
+  }
 
   return (
     <section className="bg-gray-20 h-full max-w-[1550px] p-5 flex flex-col justify-center mx-auto">

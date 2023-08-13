@@ -7,16 +7,11 @@ export default function Dashboard() {
   const router = useRouter();
   const isAuth = useAuth();
 
-  useEffect(() => {
-    console.log(isAuth);
-  }, [isAuth]);
-
   if (isAuth === null) {
     return <Loader />;
   }
 
   if (!isAuth) {
-    console.log("false ran");
     router.push("/login");
     return <Loader />;
   }
