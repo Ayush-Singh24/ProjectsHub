@@ -34,7 +34,7 @@ export default function Alert() {
       {isOpen ? (
         <div
           ref={alertRef}
-          className={`absolute flex items-center justify-center px-10 py-5 rounded-lg bottom-5 left-5 ${
+          className={`fixed z-[8000] flex items-center justify-center px-10 py-5 rounded-lg bottom-5 left-5 ${
             status === AlertStatus.Success
               ? colorVariation.Success
               : colorVariation.Error

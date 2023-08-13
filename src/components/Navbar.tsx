@@ -7,7 +7,7 @@ import { Service } from "@/service/service";
 import { AlertStatus, ResponseStatus } from "@/utils/constants";
 import { useDispatch } from "react-redux";
 import { openAlert } from "@/redux/reducers/alert";
-import { setIsAuth } from "@/redux/reducers/auth";
+import { setIsAuth, setIsLoading } from "@/redux/reducers/auth";
 import Loader from "./Loader";
 
 export default function Navbar() {
@@ -15,7 +15,7 @@ export default function Navbar() {
   const dispatch = useDispatch();
 
   const [showNav, setShowNav] = useState<boolean>(false);
-  const { isAuth } = useSelector((state: RootState) => state.auth);
+  const { isAuth, isLoading } = useSelector((state: RootState) => state.auth);
 
   const bottomScrollPosition: ScrollToOptions = {
     top: 100,
@@ -36,18 +36,21 @@ export default function Navbar() {
   };
 
   const handleLogout = async () => {
+    setShowNav(false);
+    dispatch(setIsLoading(true));
     const response = await Service.logout();
     if (response.status === ResponseStatus.Ok) {
       dispatch(
         openAlert({ message: response.message, status: AlertStatus.Success })
       );
+      dispatch(setIsLoading(false));
       dispatch(setIsAuth(null));
       router.push("/");
     }
   };
 
-  if (isAuth === null) {
-    return <></>;
+  if (isAuth === null || isLoading) {
+    return <Loader />;
   }
 
   return (
@@ -97,7 +100,9 @@ export default function Navbar() {
                   route="/dashboard"
                   setShowNav={setShowNav}
                 />
-                <li className="p-2 transition-all rounded md:py-2 md:px-3 noSelect">
+                <li
+                  className={`p-2 md:py-2 md:px-3 rounded transition-all noSelect active:bg-primary-500`}
+                >
                   <span className={NavSpanStyle} onClick={handleLogout}>
                     Log Out
                   </span>
